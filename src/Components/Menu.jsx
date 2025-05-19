@@ -6,7 +6,7 @@ export default function Menu() {
 
   return (
     <div
-      className="p-6 rounded-xl shadow-lg h-[600px] flex flex-col items-center"
+      className="p-6 rounded-xl shadow-lg h-[900px] flex flex-col items-center"
       style={{ backgroundColor: '#EFF5FD' }}
     >
       <div className="w-full flex justify-end mb-7">
