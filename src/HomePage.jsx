@@ -1,4 +1,4 @@
-import Header from "./header";
+import Header from "./Components/Header";
 import headerImage from './assets/header.png';
 import Menu from "./Components/Menu";
 import Cards from "./Components/Cards";

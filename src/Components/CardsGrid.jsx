@@ -1,6 +1,5 @@
 import Cards from "./Cards";
-import imageImage from '../assets/image.jpg';
-
+import imageImage from '../assets/image.jpg'
 export default function CardsGrid() {
     return (
         <div className="max-w-7xl mx-auto p-6">
@@ -17,8 +16,7 @@ export default function CardsGrid() {
                 />
                 <Cards
                     title="صورة دعوية"
-                   content={{ type: 'image', value: imageImage }}
-
+                    content={{ type: 'image', value: 'https://via.placeholder.com/400x300.png?text=دعوية' }}
                 />
                 <Cards
                     title="تسجيل صوتي"
