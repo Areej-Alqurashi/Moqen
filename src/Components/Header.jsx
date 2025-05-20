@@ -6,7 +6,7 @@ export default function Header() {
     <>
       <div >
         {/* الهيدر */}
-        <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-16 flex items-center px-2 border-b-4 border-yellow-500 ">
+        <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-20 flex items-center px-2 border-b-4 border-yellow-500 ">
           <div className="flex justify-between items-center w-full">
             {/* logo */}
             <div className="flex items-center space-x-2 p-4">

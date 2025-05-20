@@ -13,8 +13,9 @@ export default function HomePage() {
         <img
           src={headerImage}
           alt="header decoration"
-          className="w-full h-[500px] object-cover"
+          className="w-full h-[250px] object-cover"
         />
+        
       </div>
 
       {/* المحتوى الرئيسي */}
@@ -23,8 +24,8 @@ export default function HomePage() {
 
 
         <div className="flex-1">
-          
-           <CardsGrid/>
+
+          <CardsGrid />
         </div>
 
         {/* المنيو على اليمين بعرض ثابت */}
