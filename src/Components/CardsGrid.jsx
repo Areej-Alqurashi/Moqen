@@ -1,34 +1,64 @@
+// CardsGrid.jsx
 import Cards from "./Cards";
-import imageImage from '../assets/image.jpg';
 
 export default function CardsGrid() {
+  const Text1 = `
+﴿آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ﴾  
+صدَّق رسول الله ﷺ بما أوحي إليه من ربه، وكذلك المؤمنون صدقوا بالله وملائكته وكتبه ورسله، لا يفرّقون بين أحد منهم في الإيمان، وقالوا: سمعنا وأطعنا، نرجو غفرانك يا ربنا، وإليك المصير.
+
+﴿لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا﴾  
+لا يحمّل الله الإنسان ما لا يستطيع تحمله، فله ما كسب من الخير، وعليه ما اكتسب من الإثم. وقالوا: ربنا لا تؤاخذنا إن نسينا أو أخطأنا، ولا تحمّل علينا إصرًا كما حُمِّل على من قبلنا، ولا تحمّلنا ما لا طاقة لنا به، واعفُ عنا واغفر لنا وارحمنا، أنت مولانا، فانصرنا على القوم الكافرين.
+`;
+
+  const Text2 = "(  من صور خدمة علماء المسلمين لدين الله تعالى : القاضي أبو يوسف رحمه الله نموذجاً) ";
+
+  const Text3 = "قول اعوذ برب الناس ملك الناس اله الناس اله الناس من شر الوسواس الخناس الذي يوسوس في صدور الناس";
+
   return (
-    <div className="max-w-7xl mx-auto p-6">
+    <div className="w-full p-6 px-4 sm:px-6">
       <h2
         className="text-2xl font-bold mb-4 text-right border-b-2 pb-1 font-tajawal"
         style={{ color: '#E2A03F', borderColor: '#555555' }}
       >
-        الخطب
+        ‹ مقالات
       </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 w-full">
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div>
-          <p className="text-right font-tajawal mb-2 text-lg">خطبة</p>
-          <Cards content={{ type: 'text', value: 'الأشهر الحرم، وكان من تعظيمهم لذلك أنهم لا يروعون فيها نفساً، ولا يطلبون فيها ثأراً، حتى أن الرجل كان في الأشهر الحرم أو في البيت الحرام قاتل أبيه أو ابنه أو أخيه، فلا يثأر منه ولا يزعجه ولا يمد..' }} />
-        </div>
 
-        <div>
-          <p className="text-right font-tajawal mb-2 text-lg">صورة دعوية</p>
-          <Cards content={{ type: 'image', value: imageImage }} imgClassName="w-full h-64 object-cover" />
-        </div>
-
-        <div>
-          <p className="text-right font-tajawal mb-2 text-lg">تسجيل صوتي</p>
-          <Cards content={{ type: 'audio', value: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' }} />
-        </div>
+        <Cards
+          title="لماذا نصوم"
+          content={{ type: 'text', value: Text2 }}
+        />
+        <Cards
+          title="الالحاح في الدعاء"
+          content={{ type: 'text', value: Text2 }}
+        />
+        <Cards
+          title="اسم الله الواسع"
+          content={{ type: 'text', value: Text2 }}
+        />
       </div>
 
-      {/* كرر نفس البنية لباقي الأقسام */}
+      <h2
+        className="text-2xl font-bold mb-4 text-right border-b-2 pb-1 font-tajawal mt-20"
+        style={{ color: '#E2A03F', borderColor: '#555555' }}
+      >
+        ‹ تسجيلات قرآنية
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <Cards
+          title="سورة الناس"
+          content={{ type: 'text', value: Text1 }}
+        />
+        <Cards
+          title="صورة الفلق"
+          content={{ type: 'text', value: Text3 }}
+        />
+        <Cards
+          title="اواخر سورة البقرة"
+          content={{ type: 'text', value: Text3 }}
+        />
+      </div>
     </div>
   );
 }
