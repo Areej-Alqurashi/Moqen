@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import Header from "./Components/Header";
 import headerImage from './assets/header.png';
-import Menu from "./Components/Menu";
-import ImageToggle from "./ImageToggle";
-import CardsGrid from "./Components/CardsGrid";
-import AudioTable from "./AudioTable";
-import VideoCard from "./VideoCard";
-import Footer from "./Footer";
+
+
+
+import Header from './Components/Header';
+import Menu from './Components/Menu';
+import ImageToggle from './Components/ImageToggle';
+import CardsGrid from './Components/CardsGrid';
+import AudioTable from './Components/AudioTable';
+import VideoCard from './Components/VideoCard';
+import Footer from './Components/Footer';
+
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
