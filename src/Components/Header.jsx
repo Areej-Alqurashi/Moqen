@@ -1,5 +1,5 @@
-import logo from './assets/logo.png'
-import headerImage from './assets/header.png'
+import logo from '../assets/logo.png'
+import headerImage from '../assets/header.png'
 
 export default function Header() {
   return (

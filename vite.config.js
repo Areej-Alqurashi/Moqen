@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-
   plugins: [react(), tailwindcss()],
+  server: {
+    historyApiFallback: true, // هذا يخلي التوجيه يشتغل بشكل صحيح مع react-router
+  },
 })
