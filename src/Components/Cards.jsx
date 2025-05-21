@@ -1,8 +1,9 @@
-// Cards.jsx
 import { useNavigate } from 'react-router-dom';
 
-export default function Cards({ content, imgClassName = "w-full h-64 object-cover" }) {
+export default function Cards({ title, content }) {
   const navigate = useNavigate();
+
+  const wordLimit = 30;
 
   const renderContent = () => {
     switch (content.type) {
@@ -10,16 +11,36 @@ export default function Cards({ content, imgClassName = "w-full h-64 object-cove
         return (
           <img
             src={content.value}
-            alt=""
-            className={`${imgClassName} rounded-md mb-4`}
+            alt={title}
+            className="w-full rounded-md mb-4 object-cover"
           />
         );
-      case 'text':
+      case 'text': {
+        const words = content.value.split(' ');
+        if (words.length > wordLimit) {
+          // عرض جزء من النص + زر المزيد
+          return (
+            <>
+              <p className="text-gray-700 text-sm font-tajawal leading-relaxed mb-2">
+                {words.slice(0, wordLimit).join(' ')}...
+              </p>
+              <button
+                className="text-[#4E5BA1] font-tajawal underline hover:opacity-80 transition"
+                onClick={() => navigate('/khutab')}
+              >
+                المزيد
+              </button>
+
+            </>
+          );
+        }
+        // النص أقصر من الحد، عرض كامل
         return (
           <p className="text-gray-700 text-sm font-tajawal leading-relaxed">
             {content.value}
           </p>
         );
+      }
       case 'audio':
         return (
           <audio controls className="w-full mb-4">
@@ -27,20 +48,35 @@ export default function Cards({ content, imgClassName = "w-full h-64 object-cove
             المتصفح لا يدعم الصوت.
           </audio>
         );
+      case 'video':
+        return (
+          <div className="aspect-video mb-4 rounded-md overflow-hidden">
+            <iframe
+              src={content.value}
+              className="w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title={title}
+            ></iframe>
+          </div>
+        );
       default:
         return <p className="font-tajawal">نوع غير مدعوم</p>;
     }
   };
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
-      {renderContent()}
-      <button
-        onClick={() => navigate('/khutab')}
-        className="mt-4 bg-blue-600 hover:bg-blue-700 text-black py-2 px-4 rounded font-tajawal w-full"
-      >
-        المزيد 
-      </button>
+    <div
+      className="cursor-pointer p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:bg-[#4E5BA1] transition duration-300 w-full"
+      onClick={() => navigate('/khutab')}
+    >
+      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 border-b border-gray-300 pb-2 font-tajawal text-right">
+        {title}
+      </h3>
+      <div className="line-clamp-4 text-sm sm:text-base text-gray-700 font-tajawal">
+        {renderContent()}
+      </div>
     </div>
   );
 }

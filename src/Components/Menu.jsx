@@ -6,32 +6,36 @@ export default function Menu() {
 
   return (
     <div
-      className="p-6 rounded-xl shadow-lg h-[900px] flex flex-col items-center"
+      className="p-6 rounded-xl shadow-lg h-[650px] flex flex-col items-center"
       style={{ backgroundColor: '#EFF5FD' }}
     >
-      <div className="w-full flex justify-end mb-7">
-        <img
-          src={logo}
-          alt="Logo"
-          className="w-35 h-30 object-contain"
-        />
+      <div className="flex items-center space-x-2 rtl:space-x-reverse p-4 ">
+        <div className="border-b-4 border-[#130753] w-60 mb-2 ml-20">
+          <h2
+            className="text-2xl font-extrabold font-tajawal ml-10"
+            style={{ color: '#130753' }}
+          >
+            التصنيفات
+          </h2>
+        </div>
+
+
+
+        {/* اللوجو على اليمين */}
+        <img src={logo} alt="logo" className="w-30 h-auto " />
       </div>
 
-      <h2
-        className="text-2xl font-bold mb-6 border-b-4 pb-3 text-center font-tajawal w-full"
-        style={{ color: '#130753', borderColor: '#130753' }}
-      >
-        التصنيفات
-      </h2>
-      <ul className="space-y-4 text-right font-tajawal flex-grow w-full">
+
+      <ul className="space-y-4 text-right font-tajawal flex-grow w-full ">
         {[
-          "الخطب",
-          "الدروس",
-          "المحاضرات",
+          "خطب",
+          "دروس علمية",
+          "بطائق دعوية",
           "الكتب",
-          "المقالات",
-          "الصوتيات",
-          "الفيديوهات",
+          "نوادر مفيدة",
+          "تسجيلات قرانية",
+          "مسائل فقهية",
+          "اعلام",
         ].map((item) => (
           <li key={item}>
             <a

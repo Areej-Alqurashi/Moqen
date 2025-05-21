@@ -1,14 +1,38 @@
-import logo from '../assets/logo.png'
-import headerImage from '../assets/header.png'
+import logo from '../assets/logo.png';
+import headerImage from '../assets/header.png';
 
-export default function Header() {
+export default function Header({ onMenuToggle }) {
   return (
     <>
-      <div >
-        <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-16 flex items-center px-2 border-b-4 border-yellow-500 ">
+      <div>
+        {/* الهيدر */}
+        <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-20 flex items-center px-2 border-b-4 border-yellow-500 ">
           <div className="flex justify-between items-center w-full">
-            <div className="flex items-center space-x-2 p-4">
+            {/* قسم اللوجو + زر التصنيفات */}
+            <div className="flex items-center space-x-2 rtl:space-x-reverse p-4">
               <img src={logo} alt="logo" className="w-24 h-auto" />
+
+              {/* زر التصنيفات يظهر فقط في الشاشه الصغيرة */}
+              <button
+                onClick={onMenuToggle}
+                className="sm:hidden text-[#130753] font-bold px-3 py-2 rounded mr-4 flex items-center justify-center"
+                type="button"
+                aria-label="فتح القائمة"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="#130753"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+
+
+              </button>
+
+
             </div>
 
             <div className="relative">
@@ -30,10 +54,7 @@ export default function Header() {
             </div>
           </div>
         </header>
-
       </div>
-
-
     </>
-  )
+  );
 }
