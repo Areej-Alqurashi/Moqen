@@ -12,7 +12,7 @@ export default function Header({ onMenuToggle }) {
             <div className="flex items-center space-x-2 rtl:space-x-reverse p-4">
               <img src={logo} alt="logo" className="w-24 h-auto" />
 
-              {/* زر التصنيفات يظهر فقط في الشاشه الصغيرة */}
+              {/* زر التصنيفات يظهر فقط في الشاشات الصغيرة */}
               <button
                 onClick={onMenuToggle}
                 className="sm:hidden text-[#130753] font-bold px-3 py-2 rounded mr-4 flex items-center justify-center"
@@ -35,6 +35,7 @@ export default function Header({ onMenuToggle }) {
 
             </div>
 
+            {/*  البحث */}
             <div className="relative">
               <svg
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white w-5 h-5"

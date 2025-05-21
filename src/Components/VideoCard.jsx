@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const videos = [
   {
-    title: "حكم السفر بدون محرم 1",
+    title: "حكم السفر بدون محرم ",
     src: "/path/to/video1.mp4",
   },
   {
