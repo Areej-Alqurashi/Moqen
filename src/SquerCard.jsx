@@ -14,11 +14,11 @@ export default function SquerCard() {
         mt-10 mx-auto
         cursor-pointer
         flex justify-center items-center
-        bg-[#4E5BA1]
+        bg-[#c38f33]
         transition
         duration-300
         ease-in-out
-        hover:bg-[#3b4780]
+        hover:bg-[#c38f33]
         active:scale-95
         select-none
       "

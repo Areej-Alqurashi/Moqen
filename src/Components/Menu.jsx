@@ -1,61 +1,87 @@
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
+import {
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemButton,
+  Divider,
+} from '@mui/material';
+import { useState } from 'react';
 
 export default function Menu() {
+  const [activeIndex, setActiveIndex] = useState(null);
 
-
+  const items = [
+    'خطب',
+    'دروس علمية',
+    'بطائق دعوية',
+    'الكتب',
+    'نوادر مفيدة',
+    'تسجيلات قرانية',
+    'مسائل فقهية',
+    'اعلام',
+  ];
 
   return (
-    <div
-      className="p-6 rounded-xl shadow-lg h-[650px] flex flex-col items-center"
-      style={{ backgroundColor: '#EFF5FD' }}
+    <Box
+      sx={{
+        backgroundColor: '#EFF5FD',
+        borderRadius: 3,
+        boxShadow: 3,
+        p: 3,
+        height: '650px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        direction: 'rtl',
+      }}
     >
-      <div className="flex items-center space-x-2 rtl:space-x-reverse p-4 ">
-        <div className="border-b-4 border-[#130753] w-60 mb-2 ml-20">
-          <h2
-            className="text-2xl font-extrabold font-tajawal ml-10"
-            style={{ color: '#130753' }}
+      {/* العنوان + اللوقو */}
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '100',
+          mb: 2,
+          ml:20
+        }}
+      >        {/* اللوقو على اليمين */}
+        <img src={logo} alt="logo" style={{ width: '90px', height: 'auto' }} />
+
+        {/* العنوان */}
+        <Box sx={{ borderBottom: '4px solid #130753', width: '200%' }}>
+          <Typography
+            variant="h6"
+            fontWeight="bold"
+            sx={{ fontFamily: 'Tajawal', color: '#130753', mb: 1 }}
           >
             التصنيفات
-          </h2>
-        </div>
+          </Typography>
+        </Box>gut
+      </Box>
 
-
-
-        {/* اللوجو على اليمين */}
-        <img src={logo} alt="logo" className="w-30 h-auto " />
-      </div>
-
-
-      <ul className="space-y-4 text-right font-tajawal flex-grow w-full ">
-        {[
-          "خطب",
-          "دروس علمية",
-          "بطائق دعوية",
-          "الكتب",
-          "نوادر مفيدة",
-          "تسجيلات قرانية",
-          "مسائل فقهية",
-          "اعلام",
-        ].map((item) => (
-          <li key={item}>
-            <a
-              href="#"
-              className="block px-4 py-2 rounded-lg transition-colors duration-300"
-              style={{ color: '#130753' }}
-              onClick={(e) => {
-                e.preventDefault();
-                const siblings = e.currentTarget.parentElement.parentElement.querySelectorAll('a');
-                siblings.forEach(link => {
-                  link.style.color = '#130753';
-                });
-                e.currentTarget.style.color = '#E2A03F';
+      {/* القائمة */}
+      <List sx={{ width: '100%', flexGrow: 1 }}>
+        {items.map((item, index) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton
+              onClick={() => setActiveIndex(index)}
+              sx={{
+                color: activeIndex === index ? '#E2A03F' : '#130753',
+                fontFamily: 'Tajawal',
+                borderRadius: 2,
+                px: 2,
               }}
             >
-              {item}
-            </a>
-          </li>
+              <Typography fontSize="1rem" fontWeight="500">
+                {item}
+              </Typography>
+            </ListItemButton>
+          </ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Box>
   );
 }

@@ -1,19 +1,28 @@
+import { Link } from "react-router-dom";
+
 // AudioTable.jsx
 export default function AudioTable() {
   return (
-    <div className="space-y-6 mt-8 mr-0 px-4 sm:px-6 ml-20" dir="rtl">
-      {/* عنصر 1 */}
+    <div className=" w-60 space-y-9 mt-8  px-4 sm:px-6 ml-20" dir="rtl">
+
       <div className="bg-gray-50 p-4 rounded-md shadow-sm w-full sm:w-fit mt-20">
-        <h3 className="text-right font-tajawal text-lg mb-2 text-gray-800">سورة الفاتحه</h3>
+        <Link
+          to="/main"
+          className="font-tajawal text-2xl font-semibold mb-4 !text-[#E2A03F] hover:text-[#c38f33]  block">
+          <h3 className="text-right font-tajawal text-lg mb-2" style={{ color: '#E2A03F' }}>سورة الفاتحه ‹ </h3></Link>
         <audio controls className="w-full sm:w-64 h-8">
           <source src="/path/to/audio.mp3" type="audio/mpeg" />
           المتصفح لا يدعم الصوت.
         </audio>
       </div>
 
-      {/* عنصر 2 */}
+
       <div className="bg-gray-50 p-4 rounded-md shadow-sm w-full sm:w-fit">
-        <h3 className="text-right font-tajawal text-lg mb-2 text-gray-800">اواخر سورة البقرة</h3>
+        <Link
+          to="/Main"
+          className="font-tajawal text-2xl font-semibold mb-4 !text-[#E2A03F] hover:text-[#c38f33]  block">
+          <h3 className="text-right font-tajawal text-lg mb-2 " style={{ color: '#E2A03F' }}> اواخر سورة البقرة ‹</h3>
+        </Link>
         <audio controls className="w-full sm:w-64 h-8">
           <source src="/path/to/audio.mp3" type="audio/mpeg" />
           المتصفح لا يدعم الصوت.

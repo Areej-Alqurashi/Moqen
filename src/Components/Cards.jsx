@@ -18,7 +18,7 @@ export default function Cards({ title, content }) {
       case 'text': {
         const words = content.value.split(' ');
         if (words.length > wordLimit) {
-          // عرض جزء من النص + زر المزيد
+          
           return (
             <>
               <p className="text-gray-700 text-sm font-tajawal leading-relaxed mb-2">
@@ -34,7 +34,7 @@ export default function Cards({ title, content }) {
             </>
           );
         }
-        // النص أقصر من الحد، عرض كامل
+
         return (
           <p className="text-gray-700 text-sm font-tajawal leading-relaxed">
             {content.value}
