@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // تأكد من وجود هذا الاستيراد
+import { Link } from "react-router-dom";
 
 const videos = [
   {
-    title: "حكم السفر بدون محرم 1",
+    title: "حكم السفر بدون محرم ",
     src: "/path/to/video1.mp4",
   },
   {
@@ -16,7 +16,7 @@ const videos = [
   },
 ];
 
-export default function VideoGallery() {
+export default function VideoCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goNext = () => {
@@ -33,7 +33,7 @@ export default function VideoGallery() {
     <div className="max-w-4xl mx-auto my-8 text-right">
 
       <Link
-        to="/khutab"
+        to="/Main"
         className="font-tajawal text-2xl font-semibold mb-4 !text-[#E2A03F] hover:underline block"
       >
         {videos[currentIndex].title}
@@ -50,11 +50,10 @@ export default function VideoGallery() {
           <source src={videos[currentIndex].src} type="video/mp4" />
           المتصفح لا يدعم تشغيل الفيديو.
         </video>
-
         {/* زر السهم السابق */}
         <button
           onClick={goPrev}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-600 hover:bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center shadow-md"
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 text-3xl text-[#4E5BA1] hover:text-[#E2A03F] transition-colors duration-200"
           aria-label="السابق"
         >
           ‹
@@ -63,11 +62,12 @@ export default function VideoGallery() {
         {/* زر السهم التالي */}
         <button
           onClick={goNext}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-600 hover:bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center shadow-md"
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 text-3xl text-[#4E5BA1] hover:text-[#E2A03F] transition-colors duration-200"
           aria-label="التالي"
         >
           ›
         </button>
+
       </div>
     </div>
   );

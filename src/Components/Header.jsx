@@ -32,6 +32,7 @@ export default function Header({ onMenuToggle }) {
 
             </div>
 
+            {/*  البحث */}
             <div className="relative">
               <svg
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white w-5 h-5"
