@@ -1,21 +1,13 @@
-
-import image1 from '../assets/card1.jpg';
-import image2 from '../assets/card2.jpg';
-
-import image4 from '../assets/card4.jpg';
-
-
-
 export default function ImageTable() {
     const rows = [
-        { title: "آداب المسجد", img: image1 },
-        { title: "أذكار الصباح والمساء", img: image2 },
-        { title: "صلة الرحم", img: image4 },
+        { title: "آداب المسجد", img: "/card1.jpg" },
+        { title: "أذكار الصباح والمساء", img: "/card2.jpg" },
+        { title: "صلة الرحم", img: "/card4.jpg" },
     ];
 
     return (
-        <div className="-x-auto mt-10" dir="rtl">
-            <table className="min-w-100 text-right font-tajawal">
+        <div className="overflow-x-auto mt-10" dir="rtl">
+            <table className="min-w-full text-right font-tajawal">
                 <thead>
                     <tr>
                         <th className="py-2 px-4 text-[#c38f33] text-lg">دروس دينية</th>
@@ -32,7 +24,6 @@ export default function ImageTable() {
                                 />
                                 <span className="text-[#444] text-base">{row.title}</span>
                             </td>
-
                         </tr>
                     ))}
                 </tbody>

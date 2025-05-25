@@ -1,6 +1,3 @@
-import logo from '../assets/logo.png';
-import headerImage from '../assets/header.png';
-
 export default function Header({ onMenuToggle }) {
   return (
     <>
@@ -8,7 +5,7 @@ export default function Header({ onMenuToggle }) {
         <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-20 flex items-center px-2 border-b-4 border-yellow-500 ">
           <div className="flex justify-between items-center w-full">
             <div className="flex items-center space-x-2 rtl:space-x-reverse p-4">
-              <img src={logo} alt="logo" className="w-24 h-auto" />
+              <img src="/logo.png" alt="logo" className="w-24 h-auto" />
 
               <button
                 onClick={onMenuToggle}
@@ -25,11 +22,7 @@ export default function Header({ onMenuToggle }) {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-
-
               </button>
-
-
             </div>
 
             {/*  البحث */}

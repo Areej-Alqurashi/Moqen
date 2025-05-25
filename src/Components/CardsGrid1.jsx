@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Cards from "./Cards";
-import imageImage from '../assets/image.jpg';
 
 export default function CardsGrid() {
   const [sortNewestFirst, setSortNewestFirst] = useState(true);
   const [visibleCount, setVisibleCount] = useState(12);
+
+  const imageImage = "/image.jpg";  // مسار مباشر للصورة من public
 
   const allCards = [
     {
@@ -39,9 +40,7 @@ export default function CardsGrid() {
 
   return (
     <div className="max-w-5xl mx-auto px-4">
-    
       <div className="relative flex justify-end mb-8 text-right">
-   
         <button
           onClick={() => setSortNewestFirst(!sortNewestFirst)}
           className="relative z-10 !bg-[#4E5BA1] px-3 text-sm font-semibold text-white hover:underline transition"
@@ -57,7 +56,6 @@ export default function CardsGrid() {
         ))}
       </div>
 
-     
       {visibleCount < allCards.length && (
         <div className="flex justify-center mt-6">
           <button

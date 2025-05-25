@@ -3,12 +3,11 @@ import Header from './Components/Header';
 import Menu from "./Components/Menu";
 import CardsGrid from "./Components/CardsGrid1";
 import Cards from "./Components/Cards";
-import headerImage from "./assets/header.png";
 
 const recommendedCards = [
   {
-    title: " توصية",
-    content: { type: "image", value: "1" },
+    title: "توصية",
+    content: { type: "image", value: "/assets/card1.jpg" }, // رابط مباشر من public
   },
   {
     title: "توصية",
@@ -16,11 +15,11 @@ const recommendedCards = [
   },
   {
     title: "توصية",
-    content: { type: "audio", value: "3" },
+    content: { type: "audio", value: "/assets/audio3.mp3" }, // مثال رابط صوتي من public
   },
   {
     title: "توصية",
-    content: { type: "image", value: "4" },
+    content: { type: "image", value: "/assets/card4.jpg" },
   },
   {
     title: "توصية",
@@ -61,10 +60,11 @@ export default function MainPage() {
 
       <div className="relative w-full h-[500px]">
         <img
-          src={headerImage}
+          src="/header.png"
           alt="header decoration"
           className="w-full h-full object-cover"
         />
+
 
         <div className="absolute inset-x-0 bottom-20 z-10 px-4">
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-6">

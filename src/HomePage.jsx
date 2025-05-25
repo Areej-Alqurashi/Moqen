@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import headerImage from './assets/header.png';
+
 import Header from './Components/Header';
 import Menu from './Components/Menu';
 import ImageToggle from './Components/ImageToggle';
@@ -10,8 +10,6 @@ import Footer from './Footer';
 import ImageTable from './Components/ImageTable';
 import Divider from '@mui/material/Divider';
 
-
-
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,14 +18,12 @@ export default function HomePage() {
       <Header onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
 
       {/* زر التصنيفات يظهر (الجوال) */}
-      <div className="sm:hidden p-4 flex justify-end mt-20">
-
-      </div>
+      <div className="sm:hidden p-4 flex justify-end mt-20"></div>
 
       {/* صورة الهيدر */}
-      <div className="w-full h-[400px] mb-0 sm: h-[400px] block  mt-1 py-0 ">
+      <div className="w-full h-[400px] mb-0 sm: h-[400px] block mt-1 py-0">
         <img
-          src={headerImage}
+          src="/header.png"
           alt="header decoration"
           className="w-full h-full object-cover"
         />
@@ -37,31 +33,22 @@ export default function HomePage() {
       <div className="sm:hidden p-4 space-y-8 overflow-auto max-h-[calc(100vh-100px)] mt-4">
         <CardsGrid />
 
-      
         <div className="flex justify-center ml-30 mt-0">
           <ImageToggle />
         </div>
 
         <ImageTable />
-
         <VideoCard videoSrc="/path/to/video.mp4" />
       </div>
-
-
 
       <div className="hidden sm:flex flex-row p-8 gap-6 flex-1 items-start mt-0 py-0">
         <div className="w-64 ml-8">
           <ImageToggle />
-          <Divider sx={{ my: 1, borderColor: '#4E5BA1', borderStyle: 'dashed', }} />
-          
+          <Divider sx={{ my: 1, borderColor: '#4E5BA1', borderStyle: 'dashed' }} />
           <AudioTable />
-       
-          <Divider sx={{ my: 3, borderColor: '#4E5BA1', borderStyle: 'dashed', }} />
-
+          <Divider sx={{ my: 3, borderColor: '#4E5BA1', borderStyle: 'dashed' }} />
           <ImageTable />
-          <Divider sx={{ my: 1, borderColor: '#4E5BA1', borderStyle: 'dashed', }} />
-         
-
+          <Divider sx={{ my: 1, borderColor: '#4E5BA1', borderStyle: 'dashed' }} />
         </div>
 
         <div className="flex-1 px-4 max-w-full mt-15 ml-10">
@@ -69,10 +56,9 @@ export default function HomePage() {
           <VideoCard title="عنوان الفيديو" videoSrc="/path/to/video.mp4" />
         </div>
 
-        <div className="hidden sm:block  top-[100px] right-0 w-64 z-40 mb-1">
+        <div className="hidden sm:block top-[100px] right-0 w-64 z-40 mb-1">
           <Menu />
         </div>
-
       </div>
 
       {isMenuOpen && (
@@ -93,11 +79,9 @@ export default function HomePage() {
               </svg>
             </button>
           </div>
-
           <Menu />
         </div>
       )}
-
 
       <Footer />
     </div>

@@ -1,34 +1,31 @@
 import { useState, useEffect } from "react";
-
-import image1 from '../assets/card1.jpg';
-import image2 from '../assets/card2.jpg';
-import image3 from '../assets/card3.jpg';
-import image4 from '../assets/card4.jpg';
-
 import SquerCard from "../SquerCard";
 
-
 export default function ImageToggle() {
-  const images = [image1, image2, image3, image4];
+  // الصور من مجلد public مباشرة
+  const images = [
+    "/card1.jpg",
+    "/card2.jpg",
+    "/card3.jpg",
+    "/card4.jpg"
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);//اذا خلص الصوره يرجع للصوره الاولى
-    }, 3000);// 3000=3ثواني
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // عند الضغط على الصورة، 
   const handleClick = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     setIsModalOpen(true);
   };
 
-  
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -46,14 +43,13 @@ export default function ImageToggle() {
         onClick={handleClick}
       />
 
-    
       {isModalOpen && (
         <div
           onClick={closeModal}
           className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
         >
           <div
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
             className="relative"
           >
             <button
