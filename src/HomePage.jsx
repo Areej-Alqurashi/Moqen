@@ -64,8 +64,6 @@ export default function HomePage() {
 
         </div>
 
-
-
         <div className="flex-1 px-4 max-w-full mt-15 ml-10">
           <CardsGrid />
           <VideoCard title="عنوان الفيديو" videoSrc="/path/to/video.mp4" />

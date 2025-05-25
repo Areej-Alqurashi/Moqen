@@ -59,7 +59,7 @@ export default function Menu() {
           >
             التصنيفات
           </Typography>
-        </Box>gut
+        </Box>
       </Box>
 
       {/* القائمة */}
