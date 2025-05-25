@@ -5,14 +5,11 @@ export default function Header({ onMenuToggle }) {
   return (
     <>
       <div>
-        {/* الهيدر */}
         <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-20 flex items-center px-2 border-b-4 border-yellow-500 ">
           <div className="flex justify-between items-center w-full">
-            {/* قسم اللوجو + زر التصنيفات */}
             <div className="flex items-center space-x-2 rtl:space-x-reverse p-4">
               <img src={logo} alt="logo" className="w-24 h-auto" />
 
-              {/* زر التصنيفات يظهر فقط في الشاشه الصغيرة */}
               <button
                 onClick={onMenuToggle}
                 className="sm:hidden text-[#130753] font-bold px-3 py-2 rounded mr-4 flex items-center justify-center"

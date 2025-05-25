@@ -24,7 +24,7 @@ export default function CardsGrid() {
     },
     ...Array(9).fill(0).map((_, i) => ({
       title: `خطبة ${i + 4}`,
-      content: { type: 'text', value: 'نص دعوي ثابت لتعبئة البطاقات.' },
+      content: { type: 'text', value: '....' },
       date: new Date(2024, 8, i + 1),
     })),
   ];
@@ -44,7 +44,7 @@ export default function CardsGrid() {
    
         <button
           onClick={() => setSortNewestFirst(!sortNewestFirst)}
-          className="relative z-10 bg-[#4E5BA1] px-3 text-sm font-semibold text-[#E2A03F] hover:underline transition"
+          className="relative z-10 !bg-[#4E5BA1] px-3 text-sm font-semibold text-white hover:underline transition"
           style={{ boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
         >
           {sortNewestFirst ? "حسب الأقدم / حسب الأحدث" : "حسب الأحدث / حسب الأقدم"}
