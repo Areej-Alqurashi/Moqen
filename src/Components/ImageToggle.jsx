@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import image1 from '../assets/card1.jpg';
-import image2 from '../assets/card2.jpg';
-import image3 from '../assets/card3.jpg';
-import image4 from '../assets/card4.jpg';
+import image1 from '/src/assets/card1.jpg';
+import image2 from '/src/assets/card2.jpg';
+import image3 from '/src/assets/card3.jpg';
+import image4 from '/src/assets/card2.jpg';
 import SquerCard from "../SquerCard";
 
 
@@ -11,7 +11,7 @@ export default function ImageToggle() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // تبديل الصورة تلقائياً
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);//اذا خلص الصوره يرجع للصوره الاولى

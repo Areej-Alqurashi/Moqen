@@ -1,7 +1,7 @@
-import image1 from '../assets/card1.jpg';
-import image2 from '../assets/card2.jpg';
+import image1 from '/src/assets/card1.jpg';
+import image2 from '/src/assets/card2.jpg';
 import image3 from '../assets/card3.jpg';
-import image4 from '../assets/card4.jpg';
+import image4 from '/src/assets/card4.jpg';
 
 export default function ImageTable() {
     const rows = [
