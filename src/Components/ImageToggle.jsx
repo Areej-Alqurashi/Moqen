@@ -6,7 +6,6 @@ import image4 from '../assets/card4.jpg';
 import SquerCard from "../SquerCard";
 
 
-
 export default function ImageToggle() {
   const images = [image1, image2, image3, image4];
   const [currentIndex, setCurrentIndex] = useState(0);
