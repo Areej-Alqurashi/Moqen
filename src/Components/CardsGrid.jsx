@@ -1,4 +1,6 @@
 // CardsGrid.jsx
+import { Link } from "react-router-dom";
+
 import Cards from "./Cards";
 
 export default function CardsGrid() {
@@ -20,8 +22,11 @@ export default function CardsGrid() {
         className="text-2xl font-bold mb-4 text-right border-b-2 pb-1 font-tajawal"
         style={{ color: '#E2A03F', borderColor: '#555555' }}
       >
-        ‹ مقالات
+        <Link to="/main" className=" hover:text-[#c38f33]">
+          ‹ مقالات
+        </Link>
       </h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 w-full">
 
 
@@ -43,7 +48,10 @@ export default function CardsGrid() {
         className="text-2xl font-bold mb-4 text-right border-b-2 pb-1 font-tajawal mt-20"
         style={{ color: '#E2A03F', borderColor: '#555555' }}
       >
-        ‹ تسجيلات قرآنية
+        <Link to="/Main " ClassName=" !hover:text-[#c38f33]">
+
+          ‹ تسجيلات قرآنية
+        </Link>
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         <Cards

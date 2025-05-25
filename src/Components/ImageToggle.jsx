@@ -14,19 +14,19 @@ export default function ImageToggle() {
   // تبديل الصورة تلقائياً
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);//اذا خلص الصوره يرجع للصوره الاولى
+    }, 3000);// 3000=3ثواني
 
     return () => clearInterval(interval);
   }, []);
 
-  // عند الضغط على الصورة، افتح المودال (التبويب)
+  // عند الضغط على الصورة، 
   const handleClick = (e) => {
-    e.stopPropagation(); // لمنع تداخل أحداث
+    e.stopPropagation(); 
     setIsModalOpen(true);
   };
 
-  // إغلاق التبويب عند الضغط على الخلفية أو زر الإغلاق
+  
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -44,14 +44,14 @@ export default function ImageToggle() {
         onClick={handleClick}
       />
 
-      {/* مودال الصورة المكبرة */}
+    
       {isModalOpen && (
         <div
           onClick={closeModal}
           className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50"
         >
           <div
-            onClick={(e) => e.stopPropagation()} // لمنع غلق المودال عند الضغط داخل الصورة
+            onClick={(e) => e.stopPropagation()} 
             className="relative"
           >
             <button
