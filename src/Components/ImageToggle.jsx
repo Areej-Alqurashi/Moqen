@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import SquerCard from "../SquerCard";
 
 export default function ImageToggle() {
-  // الصور من مجلد public مباشرة
   const images = [
     "/card1.jpg",
     "/card2.jpg",

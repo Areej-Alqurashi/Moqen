@@ -1,6 +1,6 @@
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+
 
 export default function Header({ onMenuToggle }) {
   return (
