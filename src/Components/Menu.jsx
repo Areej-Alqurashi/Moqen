@@ -42,13 +42,17 @@ export default function Menu() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '100%',
+          width: '100',
           mb: 2,
-          ml: 20,
+          ml: 20
         }}
       >
         {/* اللوقو على اليمين */}
-        <img src="/logo.png" alt="logo" style={{ width: '90px', height: 'auto' }} />
+        <img
+          src="/logo.png"
+          alt="logo"
+          style={{ width: '90px', height: 'auto' }}
+        />
 
         {/* العنوان */}
         <Box sx={{ borderBottom: '4px solid #130753', width: '200%' }}>
