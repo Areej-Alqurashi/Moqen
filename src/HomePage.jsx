@@ -18,10 +18,10 @@ export default function HomePage() {
       <Header onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
 
       {/* زر التصنيفات يظهر (الجوال) */}
-      <div className="sm:hidden p-4 flex justify-end mt-20"></div>
+      <div className="sm:hidden p-4 flex justify-end mt-10"></div>
 
       {/* صورة الهيدر */}
-      <div className="w-full h-[400px] mb-0 sm: h-[400px] block mt-1 py-0">
+      <div className="elative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] mt-0 mb-9">
         <img
           src="/header.png"
           alt="header decoration"

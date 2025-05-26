@@ -7,14 +7,15 @@ import KhutbahPage from "./KhutbahPage";
 
 function App() {
   return (
-    
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="main" element={< MainPage />} />
 
-      </Routes>
-    
+    <Routes>
+      <Route path="/" element={< HomePage />} />
+      <Route path="main" element={< MainPage />} />
+
+    </Routes>
+
   );
 }
+
 
 export default App;
