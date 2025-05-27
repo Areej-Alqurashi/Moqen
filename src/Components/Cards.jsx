@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
+
 export default function Cards({ title, content }) {
   const navigate = useNavigate();
 
@@ -18,7 +19,7 @@ export default function Cards({ title, content }) {
       case 'text': {
         const words = content.value.split(' ');
         if (words.length > wordLimit) {
-          
+
           return (
             <>
               <p className="text-gray-700 text-sm font-tajawal leading-relaxed mb-2">
@@ -26,10 +27,11 @@ export default function Cards({ title, content }) {
               </p>
               <button
                 className="text-[#4E5BA1] font-tajawal underline hover:opacity-80 transition"
-                onClick={() => navigate('/khutab')}
+                onClick={() => navigate("/khutab")}
               >
                 المزيد
               </button>
+
 
             </>
           );

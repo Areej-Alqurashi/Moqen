@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import {
   Box,
   Typography,
@@ -9,9 +11,12 @@ import {
 import { useState } from 'react';
 
 export default function Menu() {
+  const navigate = useNavigate();
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const items = [
+    'الرئيسية',
     'خطب',
     'دروس علمية',
     'بطائق دعوية',
@@ -26,8 +31,8 @@ export default function Menu() {
     <Box
       sx={{
         backgroundColor: '#EFF5FD',
-        borderRadius: 3,
-        boxShadow: 3,
+        borderRadius: 8,
+        boxShadow: 10,
         p: 3,
         height: '650px',
         display: 'flex',
@@ -44,14 +49,15 @@ export default function Menu() {
           justifyContent: 'space-between',
           width: '100',
           mb: 2,
-          ml: 20
+          ml: 20,
         }}
       >
         {/* اللوقو على اليمين */}
-        <img
+        <img className='mt-4'
           src="/logo.png"
           alt="logo"
           style={{ width: '90px', height: 'auto' }}
+         
         />
 
         {/* العنوان */}
@@ -71,7 +77,16 @@ export default function Menu() {
         {items.map((item, index) => (
           <ListItem key={item} disablePadding>
             <ListItemButton
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setActiveIndex(index);
+                if (item === 'الرئيسية') {
+                  navigate('/');
+                } else {
+                  navigate('/main');
+                }
+              }}
+
+
               sx={{
                 color: activeIndex === index ? '#E2A03F' : '#130753',
                 fontFamily: 'Tajawal',

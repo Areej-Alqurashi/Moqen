@@ -94,9 +94,9 @@ export default function MainPage() {
       </div>
 
       <div className="flex flex-row-reverse gap-12 px-8 pt-6 pb-28 max-w-8xl mx-auto bg-white">
-        <aside className="w-60 flex-shrink-0 -mt-2 ml-40">
+        <div className="w-60 flex-shrink-0 -mt-2 ml-40">
           <Menu />
-        </aside>
+        </div>
 
         <main className="flex-1 mt-6">
           <CardsGrid />

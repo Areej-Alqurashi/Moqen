@@ -23,7 +23,7 @@ export default function CardsGrid() {
         style={{ color: '#E2A03F', borderColor: '#555555' }}
       >
         <Link to="/Main" className="!text-[#E2A03F] hover:text-[#a77d2a]">
-          ‹ تسجيلات قرآنية
+          ‹ مقالات
         </Link>
       </h2>
 

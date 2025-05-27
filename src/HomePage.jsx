@@ -66,11 +66,11 @@ export default function HomePage() {
           <div className="flex justify-between mb-4">
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="text-red-500 font-bold text-xl flex items-center justify-center"
+              className="ml-auto text-black font-bold text-xl"
               aria-label="إغلاق القائمة"
             >
               <svg
-                className="w-6 h-6 stroke-white"
+                className="w-6 h-6 stroke-black"
                 fill="none"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
@@ -78,6 +78,7 @@ export default function HomePage() {
                 <path d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
+
           </div>
           <Menu />
         </div>

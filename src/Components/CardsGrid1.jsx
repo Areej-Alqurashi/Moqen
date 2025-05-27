@@ -9,6 +9,7 @@ export default function CardsGrid() {
 
   const allCards = [
     {
+      
       title: "عنوان الخطبة",
       content: { type: 'text', value: 'الأشهر الحرم، وكان من تعظيمهم لذلك أنهم لا يروعون فيها نفساً...' },
       date: new Date(2024, 11, 1),
