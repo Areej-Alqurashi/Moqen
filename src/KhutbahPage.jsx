@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import Header from './Components/Header';
 import Menu from './Components/Menu';
 import Footer from './Footer';
+import { motion, AnimatePresence } from "framer-motion";
+
+
 
 export default function KhutbahPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,19 +86,33 @@ export default function KhutbahPage() {
             variants={fadeUpVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+
+            viewport={{ once: false }}
+
+
           >
+
             <div className="bg-white/80 p-6 rounded-lg text-gray-700 leading-loose whitespace-pre-line text-center text-sm">
-              {showFull ? fullText : shortText}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={showFull ? "full" : "short"}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {showFull ? fullText : shortText}
+                </motion.div>
+              </AnimatePresence>
+
               {words.length > wordLimit && (
                 <div className="mt-4 text-right">
                   <button
                     onClick={() => setShowFull(!showFull)}
-                    className="text-blue-600 text-sm font-normal"
-                    style={{ all: 'unset', cursor: 'pointer' }}
+                    className="!text-blue-600 text-sm font-normal"
+                    style={{ all: "unset", cursor: "pointer" }}
                   >
-                    {showFull ? 'إظهار أقل' : 'إظهار المزيد'}
+                    {showFull ? "إظهار أقل" : "إظهار المزيد"}
                   </button>
                 </div>
               )}
