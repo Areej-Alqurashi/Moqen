@@ -31,14 +31,14 @@ export default function ImageToggle() {
 
   return (
     <div className="w-100 mx-auto my-8 cursor-pointer">
-      <div className="mt-30 mr-30 ml-0">
+      <div className="mt-15 mr-30 ml-0">
         <SquerCard />
       </div>
 
       <img
         src={images[currentIndex]}
         alt="toggle image"
-        className="w-[300px] h-[300px] object-cover transition duration-500 rounded-lg shadow-md mt-4"
+        className="w-[300px] h-[300px] object-cover transition duration-500 rounded-lg shadow-md mt-6"
         onClick={handleClick}
       />
 

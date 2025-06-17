@@ -1,31 +1,24 @@
 import { useNavigate } from 'react-router-dom';
-
 import {
   Box,
   Typography,
   List,
   ListItem,
   ListItemButton,
-  Divider,
 } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function Menu() {
   const navigate = useNavigate();
-
   const [activeIndex, setActiveIndex] = useState(null);
+  const [categories, setCategories] = useState([]);
 
-  const items = [
-    'الرئيسية',
-    'خطب',
-    'دروس علمية',
-    'بطائق دعوية',
-    'الكتب',
-    'نوادر مفيدة',
-    'تسجيلات قرانية',
-    'مسائل فقهية',
-    'اعلام',
-  ];
+  useEffect(() => {
+    axios.get('http://198.199.121.72/api/categories')
+      .then((res) => setCategories(res.data.data))
+      .catch((err) => console.error('فشل في جلب التصنيفات', err));
+  }, []);
 
   return (
     <Box
@@ -33,12 +26,14 @@ export default function Menu() {
         backgroundColor: '#EFF5FD',
         borderRadius: 8,
         boxShadow: 10,
-        p: 3,
+        px: 3,
+        py:0,
         height: '650px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         direction: 'rtl',
+        marginTop:0
       }}
     >
       {/* العنوان + اللوقو */}
@@ -47,20 +42,16 @@ export default function Menu() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          width: '100',
-          mb: 2,
-          ml: 20,
+          width: '100%',
+          mb: 0,
+          ml: 10,
         }}
       >
-        {/* اللوقو على اليمين */}
         <img className='mt-4'
           src="/logo.png"
           alt="logo"
           style={{ width: '90px', height: 'auto' }}
-         
         />
-
-        {/* العنوان */}
         <Box sx={{ borderBottom: '4px solid #130753', width: '200%' }}>
           <Typography
             variant="h6"
@@ -74,19 +65,29 @@ export default function Menu() {
 
       {/* القائمة */}
       <List sx={{ width: '100%', flexGrow: 1 }}>
-        {items.map((item, index) => (
-          <ListItem key={item} disablePadding>
+        <ListItem disablePadding>
+          <ListItemButton
+            onClick={() => navigate('/')}
+            sx={{
+              color: '#130753',
+              fontFamily: 'Tajawal',
+              borderRadius: 2,
+              px: 2,
+            }}
+          >
+            <Typography fontSize="1rem" fontWeight="500">
+              الرئيسية
+            </Typography>
+          </ListItemButton>
+        </ListItem>
+
+        {categories.map((cat, index) => (
+          <ListItem key={cat.id} disablePadding>
             <ListItemButton
               onClick={() => {
                 setActiveIndex(index);
-                if (item === 'الرئيسية') {
-                  navigate('/');
-                } else {
-                  navigate('/main');
-                }
+                navigate(`/main?category=${cat.id}`);
               }}
-
-
               sx={{
                 color: activeIndex === index ? '#E2A03F' : '#130753',
                 fontFamily: 'Tajawal',
@@ -95,7 +96,7 @@ export default function Menu() {
               }}
             >
               <Typography fontSize="1rem" fontWeight="500">
-                {item}
+                {cat.name}
               </Typography>
             </ListItemButton>
           </ListItem>

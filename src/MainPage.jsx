@@ -1,107 +1,59 @@
+// MainPage.jsx
 import { useState } from "react";
 import Header from './Components/Header';
-import Menu from "./Components/Menu";
-import CardsGrid from "./Components/CardsGrid1";
-import Cards from "./Components/Cards";
-
-const recommendedCards = [
-  {
-    title: "توصية",
-    content: { type: "image", value: "/assets/card1.jpg" }, // رابط مباشر من public
-  },
-  {
-    title: "توصية",
-    content: { type: "text", value: ".........................." },
-  },
-  {
-    title: "توصية",
-    content: { type: "audio", value: "/assets/audio3.mp3" }, // مثال رابط صوتي من public
-  },
-  {
-    title: "توصية",
-    content: { type: "image", value: "/assets/card4.jpg" },
-  },
-  {
-    title: "توصية",
-    content: { type: "text", value: "..................." },
-  }
-];
+import StaticCardsGrid from './Components/StaticCardsGrid';
+import Menu from './Components/Menu';
+import Footer from "./Footer";
 
 export default function MainPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const cardsToShow = 3;
-  const totalCards = recommendedCards.length;
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + cardsToShow) % totalCards);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - cardsToShow + totalCards) % totalCards);
-  };
-
-  const getVisibleCards = () => {
-    if (currentIndex + cardsToShow <= totalCards) {
-      return recommendedCards.slice(currentIndex, currentIndex + cardsToShow);
-    } else {
-      return [
-        ...recommendedCards.slice(currentIndex, totalCards),
-        ...recommendedCards.slice(0, (currentIndex + cardsToShow) % totalCards),
-      ];
-    }
-  };
-
-  const visibleCards = getVisibleCards();
+  // دالة تبديل حالة القائمة
+  const toggleMenu = () => setIsMenuOpen(prev => !prev);
 
   return (
-    <div className="flex flex-col min-h-screen font-tajawal bg-white">
-      <Header />
+    <div className="flex flex-col min-h-screen font-tajawal bg-white relative">
+      {/* الهيدر + زر القائمة داخل الهيدر فقط */}
+      <Header onMenuToggle={toggleMenu} />
 
-      <div className="relative w-full h-[500px]">
+      {/* صورة الهيدر */}
+      <div className="relative w-full h-[200px] sm:h-[400px]">
         <img
           src="/header.png"
           alt="header decoration"
-          className="w-full h-full object-cover"
+          className="w-400 h-full object-cover"
         />
+      </div>
 
+      {/* الكروت */}
+      <div className="p-4 space-y-8 overflow-auto mt-15 z-0 ">
+        <StaticCardsGrid />
+      </div>
 
-        <div className="absolute inset-x-0 bottom-20 z-10 px-4">
-          <div className="max-w-6xl mx-auto flex items-center justify-between gap-6">
+      {isMenuOpen && (
+        <div className="fixed top-0 right-0 w-64 h-full px-4 py-2 rounded-l z-50 shadow-lg">
+          <div className="flex justify-between mb-4">
             <button
-              onClick={handlePrev}
-              className="bg-[#4E5BA1] text-white px-4 py-2 rounded-full shadow hover:bg-[#3c4891]"
+              onClick={() => setIsMenuOpen(false)}
+              className="ml-auto text-black font-bold text-xl"
+              aria-label="إغلاق القائمة"
             >
-              ◀
-            </button>
-
-            <div className="flex gap-6 w-full max-w-4xl bg-white/60 backdrop-blur-md rounded-xl shadow-xl px-6 py-4">
-              {visibleCards.map((card, idx) => (
-                <div key={idx} className="w-[340px] max-h-[360px]">
-                  <Cards title={card.title} content={card.content} />
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={handleNext}
-              className="bg-[#4E5BA1] text-white px-4 py-2 rounded-full shadow hover:bg-[#3c4891]"
-            >
-              ▶
+              <svg
+                className="w-6 h-6 stroke-black"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
           </div>
-        </div>
-      </div>
-
-      <div className="flex flex-row-reverse gap-12 px-8 pt-6 pb-28 max-w-8xl mx-auto bg-white">
-        <div className="w-60 flex-shrink-0 -mt-2 ml-40">
           <Menu />
         </div>
+      )}
 
-        <main className="flex-1 mt-6">
-          <CardsGrid />
-        </main>
-      </div>
+
+      <Footer />
     </div>
   );
 }
