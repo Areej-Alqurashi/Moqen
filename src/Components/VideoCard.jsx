@@ -1,36 +1,72 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function VideoCard() {
-  const [videos] = useState([
-    {
-      id: 1,
-      title: "فيديو تعليمي 1",
-      value: "/videos/video1.mp4", // تأكد من وضع الملف في مجلد public/videos
-    },
-    {
-      id: 2,
-      title: "محاضرة عن الصبر",
-      value: "/videos/video2.mp4",
-    },
-    {
-      id: 3,
-      title: "نصيحة قصيرة",
-      value: "/videos/video3.mp4",
-    },
-  ]);
-
+  const [videos, setVideos] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  useEffect(() => {
+    fetch("http://198.199.121.72/api/contents")
+      .then((res) => res.json())
+      .then((data) => {
+        const allContents = data.data || [];
+
+        // فلترة العناصر التي تحتوي على فيديوهات فقط
+        const videoItems = allContents
+          .filter(
+            (item) =>
+              item.is_hidden === 0 &&
+              Array.isArray(item.resources) &&
+              item.resources.some((res) => res.resource_type_id === 3)
+          )
+          .map((item) => {
+            const videoResource = item.resources.find(
+              (res) => res.resource_type_id === 3
+            );
+
+            // تحديد الرابط المناسب للفيديو
+            let videoUrl = "";
+
+            if (videoResource) {
+              if (videoResource.is_url === 1) {
+                // من رابط يوتيوب خارجي (مثلاً)
+                videoUrl = videoResource.resource_url;
+              } else {
+                // من السيرفر المحلي
+                videoUrl = `http://198.199.121.72${videoResource.resource_url}`;
+              }
+            }
+
+            return {
+              id: item.id,
+              title: item.title,
+              value: videoUrl,
+            };
+          });
+
+        setVideos(videoItems);
+      });
+  }, []);
+
   const goNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
+    setCurrentIndex((prevIndex) =>
+      videos.length ? (prevIndex + 1) % videos.length : 0
+    );
   };
 
   const goPrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? videos.length - 1 : prevIndex - 1
+      videos.length
+        ? prevIndex === 0
+          ? videos.length - 1
+          : prevIndex - 1
+        : 0
     );
   };
+
+  if (videos.length === 0) {
+    return <div className="text-center py-10 text-gray-500">لا توجد فيديوهات حالياً.</div>;
+  }
 
   return (
     <div className="max-w-4xl mx-auto my-1 text-right">
@@ -41,20 +77,19 @@ export default function VideoCard() {
         {videos[currentIndex].title}
       </Link>
 
-      <div className="relative">
-        <video
-          controls
-          className="w-400 rounded-lg shadow-md h-auto max-h-[400px]"
+      <div className="relative aspect-video rounded-lg shadow-md overflow-hidden">
+        <iframe
           key={videos[currentIndex].value}
-        >
-          <source src={videos[currentIndex].value} type="video/mp4" />
-          المتصفح لا يدعم تشغيل الفيديو.
-        </video>
+          className="w-full h-full"
+          src={videos[currentIndex].value}
+          title={videos[currentIndex].title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
 
-        {/* أزرار التنقل */}
         <button
           onClick={goPrev}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 text-3xl text-[#4E5BA1] hover:text-[#E2A03F] transition-colors duration-200"
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 text-3xl text-[#4E5BA1] hover:text-[#E2A03F] transition-colors duration-200 z-10"
           aria-label="السابق"
         >
           ‹
@@ -62,7 +97,7 @@ export default function VideoCard() {
 
         <button
           onClick={goNext}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 text-3xl text-[#4E5BA1] hover:text-[#E2A03F] transition-colors duration-200"
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 text-3xl text-[#4E5BA1] hover:text-[#E2A03F] transition-colors duration-200 z-10"
           aria-label="التالي"
         >
           ›

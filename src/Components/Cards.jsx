@@ -1,3 +1,4 @@
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useNavigate } from 'react-router-dom';
 
 export default function Card({ id, title, content }) {
@@ -72,9 +73,11 @@ export default function Card({ id, title, content }) {
       dir="rtl"
       className="cursor-pointer p-4 bg-white rounded-lg shadow-md hover:shadow-lg hover:bg-[#4E5BA1] hover:text-white transition duration-300 w-full font-tajawal"
     >
-      <h3 className="text-base sm:text-lg font-semibold mb-2 text-right border-b border-gray-300 pb-1">
-        {title}
-      </h3>
+      <div className="flex justify-between items-center mb-2 border-b border-gray-300 pb-1">
+        <h3 className="text-base sm:text-lg font-semibold text-right">{title}</h3>
+        {/* سهم يمين    */}
+        <ArrowForwardIosIcon className="text-[#4E5BA1] hover:text-white transition duration-300 rotate-180" />
+      </div>
 
       {renderContent()}
     </div>

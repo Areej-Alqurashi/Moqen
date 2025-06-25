@@ -1,3 +1,6 @@
+
+
+
 import { useState } from "react";
 import Cards from "./Cards";
 
@@ -5,7 +8,7 @@ export default function CardsGrid() {
   const [sortNewestFirst, setSortNewestFirst] = useState(true);
   const [visibleCount, setVisibleCount] = useState(12);
 
-  const imageImage = "/image.jpg";  // مسار مباشر للصورة من public
+  const imageImage = "/image.jpg"; 
 
   const allCards = [
     {

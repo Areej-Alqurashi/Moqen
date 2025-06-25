@@ -10,7 +10,7 @@ const Header2 = () => {
         height: { xs: '250px', md: '430px' },
         backgroundImage: 'url("/Moqen4.jpg")',
         backgroundSize: 'cover',
-        backgroundPosition: 'top', // ✅ يعرض الجزء العلوي من الصورة
+        backgroundPosition: 'top',  
         backgroundRepeat: 'no-repeat',
         display: 'flex',
         alignItems: 'flex-start',

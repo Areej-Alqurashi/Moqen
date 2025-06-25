@@ -1,3 +1,5 @@
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cards from "./Cards";
@@ -22,7 +24,9 @@ export default function CardsGrid() {
   const getTop3ByCategory = (categoryId) =>
     contents
       .filter((item) => item.category_id === categoryId && item.is_hidden === 0)
+      .sort((a, b) => b.id - a.id)
       .slice(0, 3);
+
 
   const getCategoryName = (categoryId) =>
     categories.find((cat) => cat.id === categoryId)?.name || "بدون عنوان";
@@ -37,13 +41,23 @@ export default function CardsGrid() {
 
         return (
           <div key={categoryId} className="mb-20">
-            <h2
-              className="text-2xl font-bold mb-4 text-right border-b-2 pb-1 font-tajawal mt-0 mr-20 ml-20 cursor-pointer hover:text-yellow-600 transition"
-              style={{ color: "#E2A03F", borderColor: "#555555" }}
+            <div
+              className="flex justify-between items-center border-b-2 pb-1 mt-0 mr-20 ml-20 cursor-pointer hover:text-yellow-600 transition"
+              style={{ borderColor: "#555555" }}
               onClick={() => navigate(`/main?category=${categoryId}`)}
             >
-              {categoryName}
-            </h2>
+              <div className="flex flex-row-reverse items-center gap-1 text-[#E2A03F] hover:text-white transition duration-300">
+                <span className="font-tajawal text-lg"> عرض المزيد</span>
+                <ArrowForwardIosIcon className="text-inherit text-xs rotate-180" />
+              </div>
+
+              <h2 className="text-2xl font-bold text-right font-tajawal text-[#E2A03F]">
+                {categoryName}
+              </h2>
+
+
+            </div>
+
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mr-20 ml-20">
               {items.map((item) => (

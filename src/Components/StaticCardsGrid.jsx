@@ -1,3 +1,5 @@
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Cards from "./Cards";
@@ -16,7 +18,6 @@ export default function CategoryContents() {
   const [contents, setContents] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // قراءة categoryId من query param
   const searchParams = new URLSearchParams(location.search);
   const categoryId = searchParams.get("category");
 
@@ -62,7 +63,10 @@ export default function CategoryContents() {
         style={{ color: "#E2A03F", borderColor: "#555555" }}
       >
         {category.name}
+        <ArrowForwardIosIcon className="text-[#E2A03F] hover:text-white transition duration-300" />
+
       </h2>
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mx-4 text-right sm:mx-8 md:mx-16 lg:mx-24 xl:mx-32">
         {contents.length === 0 && <p>لا توجد محتويات في هذا التصنيف.</p>}

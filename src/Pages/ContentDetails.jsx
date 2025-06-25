@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Header from './Components/Header';
-import Menu from './Components/Menu';
-import Footer from './Footer';
+import Header from '../Components/Header';
+import Menu from '../Components/Menu';
+import Footer from '../Components/Footer';
 import { motion } from 'framer-motion';
 
 export default function ContentDetails() {
@@ -54,17 +54,14 @@ export default function ContentDetails() {
 
 
 
-      {/* صورة رأسية */}
-      <div className="relative w-380 aspect-[16/9] sm:aspect-[21/9] md:aspect-[21/7] lg:aspect-[21/6] mt-6 mb-6">
+      <div className="relative w-full h-[200px] sm:h-[400px]">
         <img
           src="/header.png"
-          alt="Header"
-          className="absolute inset-0 w-full h-110 object-cover"
+          alt="header decoration"
+          className="w-400 h-full object-cover mb-4"
         />
       </div>
-
-      {/* المحتوى فقط (بدون القائمة الجانبية) */}
-      <div className="px-4 sm:px-8 pb-28 mb-1 max-w-4xl mx-auto">
+      <div className="px-4 sm:px-8 pb-28 mb-1 mt-10 max-w-4xl mx-auto">
         <main>
           {isLoading ? (
             <div className="flex items-center justify-center min-h-[300px]">
@@ -76,7 +73,7 @@ export default function ContentDetails() {
             </div>
           ) : (
             <>
-              <h1 className="text-lg sm:text-xl pb-1 text-[#E2A03F] mb-10 text-right mr-4 mt-10">
+              <h1 className="!text-[35px] sm:text-sm pb-1 text-[#E2A03F] mb-5 text-right mr-4 mt-10">
                 {content.title}
               </h1>
 

@@ -3,10 +3,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Header({ onMenuToggle }) {
   return (
-    <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-20 px-4 border-b-4 border-yellow-500 flex items-center justify-between">
-      {/* الجهة اليمنى: الزر + اللوقو (في RTL الزر على اليسار فعليًا) */}
+    <header className="bg-[#4E5BA1] text-white shadow-md w-full fixed top-0 left-0 z-50 h-20 px-4 border-b-4 border-[#E2A03F] flex items-center justify-between">
+    <img src="/logo.png" alt="logo" className="w-30 h-auto mt-5 ml-2" />
+
       <div className="flex items-center gap-4 rtl:flex-row-reverse">
-        {/* زر القائمة – يظهر دائمًا */}
         <IconButton
           onClick={(e) => {
             onMenuToggle();
@@ -35,15 +35,10 @@ export default function Header({ onMenuToggle }) {
           <MenuIcon fontSize="large" />
         </IconButton>
 
-        {/* شعار الموقع */}
-
       </div>
 
-      {/* البحث */}
-      
-        <img src="/logo.png" alt="logo" className="w-24 h-auto  mt-5 ml-4" />
 
-  
     </header>
+
   );
 }

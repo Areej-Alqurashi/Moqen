@@ -1,9 +1,8 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import MainPage from "./MainPage";
-import HomePage from "./HomePage";
-import KhutbahPage from "./KhutbahPage";
-import ContentDetails from './ContentDetails';
+import MainPage from "./Pages/MainPage";
+import HomePage from "./Pages/HomePage";
+import ContentDetails from './Pages/ContentDetails';
 
 function App() {
   return (

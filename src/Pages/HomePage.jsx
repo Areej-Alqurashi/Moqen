@@ -1,22 +1,20 @@
 import { useState } from 'react';
 
-import Header from './Components/Header';
-import Menu from './Components/Menu';
-import CardsGrid from './Components/CardsGrid';
-import ImageToggle from './Components/ImageToggle';
-import AudioTable from './AudioTable';
-import VideoCard from './Components/VideoCard';
-import Footer from './Footer';
-import ImageTable from './Components/ImageTable';
+import Header from '../Components/Header';
+import Menu from '../Components/Menu';
+import CardsGrid from '../Components/CardsGrid';
+import ImageToggle from '../Components/ImageToggle';
+import AudioTable from '../Components/AudioTable';
+import VideoCard from '../Components/VideoCard';
+import Footer from '../Components/Footer';
+import ImageTable from '../Components/ImageTable';
 import Divider from '@mui/material/Divider';
-import SuggestedCards from './Components/SuggestedCards';
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* الهيدر مع زر القائمة */}
       <div className="flex justify-between items-center px-4 py-2 bg-[#4E5BA1] fixed w-full top-0 left-0 z-50">
         <Header onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} />
         <button
@@ -28,14 +26,13 @@ export default function HomePage() {
         </button>
       </div>
 
-      {/* تعويض ارتفاع الهيدر */}
       <div className="pt-20">
         {/* صورة الهيدر */}
-        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[21/7] lg:aspect-[21/6] mb-9">
+        <div className="relative w-full h-[200px] lg:h-[370px] mb-12">
           <img
             src="/header.png"
             alt="header decoration"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-400 h-full object-cover"
           />
         </div>
 
@@ -53,13 +50,13 @@ export default function HomePage() {
         </div>
 
 
-        {/* المحتوى للشاشات الأكبر بدون قائمة جانبية */}
         <div className="hidden sm:flex flex-row p-8 gap-6 flex-1 items-start mt-0 py-0">
           <div className="w-64 ml-8 m">
             <ImageToggle />
 
             <Divider sx={{ my: 3, borderColor: '#4E5BA1', borderStyle: 'dashed' }} />
             <ImageTable />
+            <AudioTable />
 
           </div>
 
@@ -70,16 +67,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* القائمة الجانبية المنبثقة عند الضغط على زر القائمة */}
       {isMenuOpen && (
         <>
-          {/* الخلفية الشفافة (احذف هذا الجزء لو ما تبيها) */}
-          {/* <div
-      className="fixed inset-0 bg-black bg-opacity-20 z-40"
-      onClick={() => setIsMenuOpen(false)}
-    ></div> */}
 
-          {/* القائمة المنبثقة */}
           <aside
             className="fixed top-0 right-0 w-64 h-full px-4 py-2 rounded font-tajawal z-50 shadow-lg p-4"
             role="dialog"

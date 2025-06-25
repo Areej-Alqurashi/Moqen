@@ -1,19 +1,17 @@
 // MainPage.jsx
 import { useState } from "react";
-import Header from './Components/Header';
-import StaticCardsGrid from './Components/StaticCardsGrid';
-import Menu from './Components/Menu';
-import Footer from "./Footer";
+import Header from '../Components/Header';
+import StaticCardsGrid from '../Components/StaticCardsGrid';
+import Menu from '../Components/Menu';
+import Footer from "../Components/Footer";
 
 export default function MainPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // دالة تبديل حالة القائمة
   const toggleMenu = () => setIsMenuOpen(prev => !prev);
 
   return (
     <div className="flex flex-col min-h-screen font-tajawal bg-white relative">
-      {/* الهيدر + زر القائمة داخل الهيدر فقط */}
       <Header onMenuToggle={toggleMenu} />
 
       {/* صورة الهيدر */}
@@ -25,7 +23,6 @@ export default function MainPage() {
         />
       </div>
 
-      {/* الكروت */}
       <div className="p-4 space-y-8 overflow-auto mt-15 z-0 ">
         <StaticCardsGrid />
       </div>

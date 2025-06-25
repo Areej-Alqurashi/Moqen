@@ -14,7 +14,7 @@ export default function SquerCard() {
         mt-10 mx-auto
         cursor-pointer
         flex justify-center items-center
-        bg-[#c38f33]
+        bg-[#E2A03F]
         transition
         duration-300
         ease-in-out
