@@ -11,7 +11,6 @@ export default function VideoCard() {
       .then((data) => {
         const allContents = data.data || [];
 
-        // فلترة العناصر التي تحتوي على فيديوهات فقط
         const videoItems = allContents
           .filter(
             (item) =>
@@ -24,15 +23,12 @@ export default function VideoCard() {
               (res) => res.resource_type_id === 3
             );
 
-            // تحديد الرابط المناسب للفيديو
             let videoUrl = "";
 
             if (videoResource) {
               if (videoResource.is_url === 1) {
-                // من رابط يوتيوب خارجي (مثلاً)
                 videoUrl = videoResource.resource_url;
               } else {
-                // من السيرفر المحلي
                 videoUrl = `http://198.199.121.72${videoResource.resource_url}`;
               }
             }
